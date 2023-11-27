@@ -1,9 +1,9 @@
 import logging
 logger = logging.getLogger('base')
 
+
 def create_model(opt):
     model = opt['model']
-    
     if model == 'base':
         pass
     elif model == 'condition':
