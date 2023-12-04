@@ -115,6 +115,7 @@ def flow_warp(x, flow, interp_mode='bilinear', padding_mode='zeros'):
     B, C, H, W = x.shape
     grid_y, grid_x = paddle.meshgrid(paddle.arange(start=0, end=H), paddle.
         arange(start=0, end=W))
+    paddle.device.set_device("intel_gpu")
     grid = paddle.stack(x=(grid_x, grid_y), axis=2).astype(dtype='float32')
     grid.stop_gradient = not False
     grid = grid.astype(dtype=x.dtype)
